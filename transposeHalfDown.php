@@ -2,7 +2,7 @@
    function transposeHalfDown()
    {
        $dom = new DOMDocument();
-       $dom->load('TulbidJaBonsai_NP.xml');   				// 	See koht tuleb ära muuta nii, et võtaks Laikre poolt üles laetud ja 																		kliendi poolt valitud laulu XML'i. Hetkel lihtsalt testimiseks üks fail.
+       $dom->load('TulbidJaBonsai_NP.xml'); 					// 	See koht tuleb ära muuta nii, et võtaks Laikre poolt üles laetud ja kliendi poolt valitud laulu XML'i. Hetkel lihtsalt testimiseks üks fail.
        $count = $dom->getElementsByTagName('note')->length;
        $noot = $dom->documentElement;																
        $xpath = new DOMXPath($dom);

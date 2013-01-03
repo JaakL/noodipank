@@ -1,9 +1,9 @@
 <?php
-   function fnDOMEditNoodiElement()
+   function keyChangeOneAndHalfDown()
    {
        $dom = new DOMDocument();
        $dom->load('TulbidJaBonsai_NP.xml');  	// 	See koht tuleb ära muuta nii, et võtaks Laikre poolt üles laetud ja kliendi poolt valitud laulu XML'i. Hetkel lihtsalt testimiseks üks fail.
-       $noot = $dom->documentElement;
+       $noot = $dom->documentElement;        // tegelikult ebavajalik, aga avastasin nüüd, et olen selle igasse koodi sisse jätnud.
        $xpath = new DOMXPath($dom);
        $result = $xpath->query('/score-partwise/part/measure/attributes/key/fifths');
        /*Helistiku märkide muutmine*/
@@ -47,5 +47,5 @@
        echo $dom->saveXML();
        
    }   
-   $proov = fnDOMEditNoodiElement();
+   $proov = keyChangeOneAndHalfDown();
 ?>

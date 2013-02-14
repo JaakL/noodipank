@@ -2,9 +2,18 @@
    function HalfUp()
    {
        $dom = new DOMDocument();
-       $dom->load('TulbidJaBonsai_NP.xml');   				// 	See koht tuleb ära muuta nii, et võtaks Laikre poolt üles laetud ja kliendi poolt valitud laulu XML'i. Hetkel lihtsalt testimiseks üks fail.
+       $dom->load('TulbidJaBonsai_NP.xml'); 					// 	See koht tuleb ära muuta nii, et võtaks Laikre poolt üles laetud ja kliendi poolt valitud laulu XML'i. Hetkel lihtsalt testimiseks üks fail.
+
        $xpath = new DOMXPath($dom);
       
+       $count = $dom->getElementsByTagName('measure')->length;
+       $count = round($count/4);
+       $measures = $xpath->query('//measure');
+		 
+       for ($i = $count; $i < $measures->length; $i++) {
+		    $temp = $measures->item($i); //avoid calling a function twice
+		    $temp->parentNode->removeChild($temp);
+		}
      
       /*KEY CHANGING PART*/
       $result = $xpath->query('/score-partwise/part/measure/attributes/key/fifths'); // Get the node which declares the fifths for a key
@@ -534,6 +543,8 @@
 	   }// END OF TRANSPOSING HARMONY'S BASS PART
      
        header("Content-type: text/xml");
+       
+       
        echo $dom->saveXML();
        
        

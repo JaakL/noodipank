@@ -1,48 +1,62 @@
 <?php
 
-	
-	
-	$steps = '-3';// Kuidas seda teada saab?
-		
+	include_once('SixDown.php');
+	include_once('SixUp.php');
+	include_once('FiveDown.php');
+	include_once('FiveUp.php');
+	include_once('FourDown.php');
+	include_once('FourUp.php');
+	include_once('ThreeDown.php');
+	include_once('ThreeUp.php');
+	include_once('TwoDown.php');
+	include_once('TwoUp.php');
+	include_once('OneDown.php');
+	include_once('OneUp.php');
+	include_once('Zero.php');
+
+
+function transpose($steps, $location){
+			
 	
 	if($steps == "6"){
-		include_once('SixUp.php');
+		SixUp($location);
 	}
 	else if($steps == "5"){
-		include_once('FiveUp.php');
+		FiveUp($location);
 	}	
 	else if($steps == "4"){
-		include_once('FourUp.php');
+		FourUp($location);
 	}		
 	else if($steps == "3"){
-		include_once('ThreeUp.php');
+		ThreeUp($location);
 	}		
 	else if($steps == "2"){
-		include_once('TwoUp.php');
+		TwoUp($location);
 	}		
 	else if($steps == "1"){
-		include_once('OneUp.php');	
+		OneUp($location);
 	}		
 	else if($steps == "-1"){
-		include_once('OneDown.php');
+		OneDown($location);
 	}		
 	else if($steps == "-2"){
-		include_once('TwoDown.php');
+		TwoDown($location);
 	}		
 	else if($steps == "-3"){
-		include_once('ThreeDown.php');
+		ThreeDown($location);
 	}		
 	else if($steps == "-4"){
-		include_once('FourDown.php');
+		FourDown($location);
 	}
 	else if($steps == "-5"){
-		include_once('FiveDown.php');
+		FiveDown($location);
 	}
 	else if($steps == "-6"){
-		include_once('SixDown.php');
+		SixDown($location);
 	}
 	else if($steps == "0"){
-		include_once('Zero.php');
+		Zero($location);
 	}
 
+}
 ?>

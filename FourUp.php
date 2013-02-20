@@ -1,8 +1,8 @@
 <?php
-   function FourUp()
+   function FourUp($location)
    {
        $dom = new DOMDocument();
-       $dom->load('TulbidJaBonsai_NP.xml');   				// 	See koht tuleb ära muuta nii, et võtaks Laikre poolt üles laetud ja kliendi poolt valitud laulu XML'i. Hetkel lihtsalt testimiseks üks fail.
+       $dom->load($location); 					// 	See koht tuleb ära muuta nii, et võtaks Laikre poolt üles laetud ja kliendi poolt valitud laulu XML'i. Hetkel lihtsalt testimiseks üks fail.
        $xpath = new DOMXPath($dom);
       
        $count = $dom->getElementsByTagName('measure')->length;
@@ -761,12 +761,6 @@
 	       }
 		   
 	   }// END OF TRANSPOSING HARMONY'S BASS PART
-     
-       header("Content-type: text/xml");
-       echo $dom->saveXML();
-       
-       
+      $dom->save('fourup.xml');
    }   
-   $xml = FourUp();
-   
 ?>

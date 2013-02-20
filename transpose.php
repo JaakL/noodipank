@@ -1,6 +1,6 @@
 <?php
 
-  
+	
 	
 	$steps = '-3';// Kuidas seda teada saab?
 		
@@ -40,6 +40,9 @@
 	}
 	else if($steps == "-6"){
 		include_once('SixDown.php');
+	}
+	else if($steps == "0"){
+		include_once('Zero.php');
 	}
 
 ?>

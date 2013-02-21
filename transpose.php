@@ -13,52 +13,53 @@
 	include_once('OneUp.php');
 	include_once('Zero.php');
 
-	$stepsTest = '0';
-	$locationTest = 'TulbidJaBonsai_NP.xml';
+	$stepsTest = '4';
+	$filelocationTest = 'TulbidJaBonsai_NP.xml';
+	$savingLocationTest = 'iksemmell/fourUp.xml';
 	
-	function transpose($steps, $location){
+	function transpose($steps, $filelocation, $savingLocation){
 				
 		
 		if($steps == "6"){
-			SixUp($location);
+			SixUp($filelocation, $savingLocation);
 		}
 		else if($steps == "5"){
-			FiveUp($location);
+			FiveUp($filelocation, $savingLocation);
 		}	
 		else if($steps == "4"){
-			FourUp($location);
+			FourUp($filelocation, $savingLocation);
 		}		
 		else if($steps == "3"){
-			ThreeUp($location);
+			ThreeUp($filelocation, $savingLocation);
 		}		
 		else if($steps == "2"){
-			TwoUp($location);
+			TwoUp($filelocation, $savingLocation);
 		}		
 		else if($steps == "1"){
-			OneUp($location);
+			OneUp($filelocation, $savingLocation);
 		}		
 		else if($steps == "-1"){
-			OneDown($location);
+			OneDown($filelocation, $savingLocation);
 		}		
 		else if($steps == "-2"){
-			TwoDown($location);
+			TwoDown($filelocation, $savingLocation);
 		}		
 		else if($steps == "-3"){
-			ThreeDown($location);
+			ThreeDown($filelocation, $savingLocation);
 		}		
 		else if($steps == "-4"){
-			FourDown($location);
+			FourDown($filelocation, $savingLocation);
 		}
 		else if($steps == "-5"){
-			FiveDown($location);
+			FiveDown($filelocation, $savingLocation);
 		}
 		else if($steps == "-6"){
-			SixDown($location);
+			SixDown($filelocation, $savingLocation);
 		}
 		else if($steps == "0"){
-			Zero($location);
+			Zero($filelocation, $savingLocation);
 		}
 	
-	}
-	$newXML = transpose($stepsTest, $locationTest);
+	}	
+	$newXML = transpose($stepsTest, $filelocationTest, $savingLocationTest);
 ?>

@@ -71,7 +71,7 @@
      	 	if($steps->item(0)->nodeValue == 'C' && $alter->item(0)){
 		       if($steps->item(0)->nodeValue == 'C' && $alter->item(0)->nodeValue =='1'){
 		       		$steps->item(0)->nodeValue = 'G';
-		       		$alter->item(0)->nodeValue = '';
+		       		$alter->item(0)->nodeValue = '0';
 		       		if($octave->item(0)->nodeValue == '2'){
 			       		$octave->item(0)->nodeValue = '1';
 		       		}
@@ -93,7 +93,7 @@
 		       }
 		       else if($steps->item(0)->nodeValue == 'C' && $alter->item(0)->nodeValue == '-1'){
 		       		$steps->item(0)->nodeValue = 'F';
-		       		$alter->item(0)->nodeValue = '';
+		       		$alter->item(0)->nodeValue = '0';
 		       		if($octave->item(0)->nodeValue == '2'){
 			       		$octave->item(0)->nodeValue = '1';
 		       		}
@@ -147,7 +147,7 @@
 	       else if($steps->item(0)->nodeValue == 'D' && $alter->item(0)){	       
 		       if($steps->item(0)->nodeValue == 'D' && $alter->item(0)->nodeValue == '1'){
 		       		$steps->item(0)->nodeValue = 'A';
-		       		$alter->item(0)->nodeValue = '';
+		       		$alter->item(0)->nodeValue = '0';
 		       		if($octave->item(0)->nodeValue == '2'){
 			       		$octave->item(0)->nodeValue = '1';
 		       		}
@@ -169,7 +169,7 @@
 		       }
 		       else if($steps->item(0)->nodeValue == 'D' && $alter->item(0)->nodeValue == '-1'){
 		       		$steps->item(0)->nodeValue = 'G';
-		       		$alter->item(0)->nodeValue = '';
+		       		$alter->item(0)->nodeValue = '0';
 		       		if($octave->item(0)->nodeValue == '2'){
 			       		$octave->item(0)->nodeValue = '1';
 		       		}
@@ -220,7 +220,7 @@
        	 	else if($steps->item(0)->nodeValue == 'E' && $alter->item(0)){
 		       if($steps->item(0)->nodeValue == 'E' && $alter->item(0)->nodeValue == '-1'){
 		       		$steps->item(0)->nodeValue = 'A';
-		       		$alter->item(0)->nodeValue = '';
+		       		$alter->item(0)->nodeValue = '0';
 		       		if($octave->item(0)->nodeValue == '2'){
 			       		$octave->item(0)->nodeValue = '1';
 		       		}
@@ -242,7 +242,7 @@
 		       }
 		       else if($steps->item(0)->nodeValue == 'E' && $alter->item(0)->nodeValue == '1'){
 		       		$steps->item(0)->nodeValue = 'B';
-		       		$alter->item(0)->nodeValue = '';
+		       		$alter->item(0)->nodeValue = '0';
 		       		if($octave->item(0)->nodeValue == '2'){
 			       		$octave->item(0)->nodeValue = '1';
 		       		}
@@ -316,7 +316,7 @@
 		       }
 		       else if($steps->item(0)->nodeValue == 'F' && $alter->item(0)->nodeValue == '1'){
 		       		$steps->item(0)->nodeValue = 'C';
-		       		$alter->item(0)->nodeValue = '';
+		       		$alter->item(0)->nodeValue = '0';
 		       }
 		    }
 	       else if($steps->item(0)->nodeValue == 'F' && !($alter->item(0))){
@@ -325,7 +325,7 @@
 	       		$child = $dom->createElement("alter");
 	       		$note->appendChild($child);
 	       		$alter = $note->getElementsByTagName('alter');
-	       		$alter->item(0)->nodeValue = '';
+	       		$alter->item(0)->nodeValue = '0';
 	       		if($octave->item(0)->nodeValue == '2'){
 		       		$octave->item(0)->nodeValue = '1';
 	       		}
@@ -348,11 +348,11 @@
        	 	else if($steps->item(0)->nodeValue == 'G' && $alter->item(0)){	       
 		       if($steps->item(0)->nodeValue == 'G' && $alter->item(0)->nodeValue == '-1'){
 		       		$steps->item(0)->nodeValue = 'C';
-		       		$alter->item(0)->nodeValue = '';
+		       		$alter->item(0)->nodeValue = '0';
 		       }
 		       else if($steps->item(0)->nodeValue == 'G' && $alter->item(0)->nodeValue == '1'){
 		       		$steps->item(0)->nodeValue = 'D';
-		       		$alter->item(0)->nodeValue = '';
+		       		$alter->item(0)->nodeValue = '0';
 		       }
 		    }
 	       else if($steps->item(0)->nodeValue == 'G' && !($alter->item(0))){
@@ -366,11 +366,11 @@
        	 	else if($steps->item(0)->nodeValue == 'A' && $alter->item(0)){
 		       if($steps->item(0)->nodeValue == 'A' && $alter->item(0)->nodeValue == '-1'){
 		       		$steps->item(0)->nodeValue = 'D';
-		       		$alter->item(0)->nodeValue = '';
+		       		$alter->item(0)->nodeValue = '0';
 		       }
 		       else if($steps->item(0)->nodeValue == 'A' && $alter->item(0)->nodeValue == '1'){
 		       		$steps->item(0)->nodeValue = 'E';
-		       		$alter->item(0)->nodeValue = '';
+		       		$alter->item(0)->nodeValue = '0';
 		       }
 		    }
 	       else if($steps->item(0)->nodeValue == 'A' && !($alter->item(0))){
@@ -384,7 +384,7 @@
        	 	else if($steps->item(0)->nodeValue == 'B' &&  $alter->item(0)){	       
 		       if($steps->item(0)->nodeValue == 'B' && $alter->item(0)->nodeValue == '-1'){
 		       		$steps->item(0)->nodeValue = 'E';
-		       		$alter->item(0)->nodeValue = '';
+		       		$alter->item(0)->nodeValue = '0';
 		       }
 		       else if($steps->item(0)->nodeValue == 'B' && $alter->item(0)->nodeValue == '1'){
 		       		$steps->item(0)->nodeValue = 'F';
@@ -398,7 +398,7 @@
 	       		$child = $dom->createElement("alter");
 	       		$note->appendChild($child);
 	       		$alter = $note->getElementsByTagName('alter');
-	       		$alter->item(0)->nodeValue = '';
+	       		$alter->item(0)->nodeValue = '0';
 	       		
 	       }
 	   } //END OF TRANSPOSING NOTES
@@ -711,5 +711,6 @@
 		   
 	   }// END OF TRANSPOSING HARMONY'S BASS PART
             $dom->save('threedown.xml');
-   }    
+   }   
+   
 ?>

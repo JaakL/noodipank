@@ -1,8 +1,8 @@
 <?php
-   function Zero($location)
+   function Zero($filelocation, $savingLocation)
    {
        $dom = new DOMDocument();
-       $dom->load($location); 					// 	See koht tuleb ära muuta nii, et võtaks Laikre poolt üles laetud ja kliendi poolt valitud laulu XML'i. Hetkel lihtsalt testimiseks üks fail.
+       $dom->load($filelocation); 					// 	See koht tuleb ära muuta nii, et võtaks Laikre poolt üles laetud ja kliendi poolt valitud laulu XML'i. Hetkel lihtsalt testimiseks üks fail.
        $xpath = new DOMXPath($dom);
       
       
@@ -15,6 +15,6 @@
 		    $temp->parentNode->removeChild($temp);
 		}
       
-            $dom->save('zero.xml');
-   }
+            $dom->save($savingLocation);
+   }      
 ?>

@@ -455,13 +455,312 @@
 	       }
 	   } //END OF TRANSPOSING NOTES
 	   
-	  /*DELETING HARMONY TAGS*/
-	   $harmonies = $xpath->query('//harmony');
-       
-       for ($i = 0; $i < $harmonies->length; $i++) {
-		    $temp = $harmonies->item($i);
-		    $temp->parentNode->removeChild($temp);
-		}
+	  
+       /*TRANSPOSING HARMONY*/   
+       $roots = $xpath->query('//root');
+       foreach($roots as $root){
+       	 	
+       	 	$root_steps = $root->getElementsByTagName('root-step');
+       	 	$root_alter = $root->getElementsByTagName('root-alter');
+   
+     	 	if($root_steps->item(0)->nodeValue == 'C' && $root_alter->item(0)){
+		       if($root_steps->item(0)->nodeValue == 'C' && $root_alter->item(0)->nodeValue =='1'){
+		       		$root_steps->item(0)->nodeValue = 'A';
+		       		$root_alter->item(0)->nodeValue = '0';
+		       }
+		       else if($root_steps->item(0)->nodeValue == 'C' && $root_alter->item(0)->nodeValue == '-1'){
+		       		$root_steps->item(0)->nodeValue = 'G';
+		       		$root_alter->item(0)->nodeValue = '0';
+		       }
+		    }
+	       else if($root_steps->item(0)->nodeValue == 'C' && !($root_alter->item(0))){
+	       		$root_steps->item(0)->nodeValue = 'G';
+	       	
+	       		$child = $dom->createElement("root-alter");
+	       		$root->appendChild($child);
+	       		$root_alter = $root->getElementsByTagName('root-alter');
+	       		$root_alter->item(0)->nodeValue = '1';
+	       
+	       
+	       }
+	       else if($root_steps->item(0)->nodeValue == 'D' && $root_alter->item(0)){	       
+		       if($root_steps->item(0)->nodeValue == 'D' && $root_alter->item(0)->nodeValue == '1'){
+		       		$root_steps->item(0)->nodeValue = 'B';
+		       		$root_alter->item(0)->nodeValue = '0';
+		       }
+		       else if($root_steps->item(0)->nodeValue == 'D' && $root_alter->item(0)->nodeValue == '-1'){
+		       		$root_steps->item(0)->nodeValue = 'A';
+		       		$root_alter->item(0)->nodeValue = '0';
+		       }
+		    }
+	       else if($root_steps->item(0)->nodeValue == 'D' && !($root_alter->item(0))){
+	       		$root_steps->item(0)->nodeValue = 'B';
+	       		
+	       		$child = $dom->createElement("root-alter");
+	       		$root->appendChild($child);
+	       		$root_alter = $root->getElementsByTagName('root-alter');
+	       		$root_alter->item(0)->nodeValue = '-1';
+	       }
+       	 	else if($root_steps->item(0)->nodeValue == 'E' && $root_alter->item(0)){
+		       if($root_steps->item(0)->nodeValue == 'E' && $root_alter->item(0)->nodeValue == '-1'){
+		       		$root_steps->item(0)->nodeValue = 'B';
+		       		$root_alter->item(0)->nodeValue = '0';
+		       }
+		       else if($root_steps->item(0)->nodeValue == 'E' && $root_alter->item(0)->nodeValue == '1'){
+		       		$root_steps->item(0)->nodeValue = 'C';
+		       		$root_alter->item(0)->nodeValue = '1';
+		       }
+		    }
+	       else if($root_steps->item(0)->nodeValue == 'E' && !($root_alter->item(0))){
+	       		$root_steps->item(0)->nodeValue = 'C';
+	       		
+	       		$child = $dom->createElement("root-alter");
+	       		$root->appendChild($child);
+	       		$root_alter = $root->getElementsByTagName('root-alter');
+	       		$root_alter->item(0)->nodeValue = '0';
+	       }
+       	 	else if($root_steps->item(0)->nodeValue == 'F' && $root_alter->item(0)){
+		       if($root_steps->item(0)->nodeValue == 'F' && $root_alter->item(0)->nodeValue == '-1'){
+		       		$root_steps->item(0)->nodeValue = 'C';
+		       		$root_alter->item(0)->nodeValue = '0';
+		       }
+		       else if($root_steps->item(0)->nodeValue == 'F' && $root_alter->item(0)->nodeValue == '1'){
+		       		$root_steps->item(0)->nodeValue = 'D';
+		       		$root_alter->item(0)->nodeValue = '0';
+		       }
+		    }
+	       else if($root_steps->item(0)->nodeValue == 'F' && !($root_alter->item(0))){
+	       		$root_steps->item(0)->nodeValue = 'C';
+	       		
+	       		$child = $dom->createElement("root-alter");
+	       		$root->appendChild($child);
+	       		$root_alter = $root->getElementsByTagName('root-alter');
+	       		$root_alter->item(0)->nodeValue = '1';
+	       }
+       	 	else if($root_steps->item(0)->nodeValue == 'G' && $root_alter->item(0)){	       
+		       if($root_steps->item(0)->nodeValue == 'G' && $root_alter->item(0)->nodeValue == '-1'){
+		       		$root_steps->item(0)->nodeValue = 'D';
+		       		$root_alter->item(0)->nodeValue = '0';
+		       }
+		       else if($root_steps->item(0)->nodeValue == 'G' && $root_alter->item(0)->nodeValue == '1'){
+		       		$root_steps->item(0)->nodeValue = 'E';
+		       		$root_alter->item(0)->nodeValue = '0';
+		       }
+		    }
+	       else if($root_steps->item(0)->nodeValue == 'G' && !($root_alter->item(0))){
+	       		$root_steps->item(0)->nodeValue = 'D';
+	       		
+	       		$child = $dom->createElement("root-alter");
+	       		$root->appendChild($child);
+	       		$root_alter = $root->getElementsByTagName('root-alter');
+	       		$root_alter->item(0)->nodeValue = '1';
+	       }
+       	 	else if($root_steps->item(0)->nodeValue == 'A' && $root_alter->item(0)){
+		       if($root_steps->item(0)->nodeValue == 'A' && $root_alter->item(0)->nodeValue == '-1'){
+		       		$root_steps->item(0)->nodeValue = 'E';
+		       		$root_alter->item(0)->nodeValue = '0';
+		       }
+		       else if($root_steps->item(0)->nodeValue == 'A' && $root_alter->item(0)->nodeValue == '1'){
+		       		$root_steps->item(0)->nodeValue = 'F';
+		       		$root_alter->item(0)->nodeValue = '1';
+		       }
+		    }
+	       else if($root_steps->item(0)->nodeValue == 'A' && !($root_alter->item(0))){
+	       		$root_steps->item(0)->nodeValue = 'F';
+	       		
+	       		$child = $dom->createElement("root-alter");
+	       		$root->appendChild($child);
+	       		$root_alter = $root->getElementsByTagName('root-alter');
+	       		$root_alter->item(0)->nodeValue = '0';
+	       }
+       	 	else if($root_steps->item(0)->nodeValue == 'B' &&  $root_alter->item(0)){	       
+		       if($root_steps->item(0)->nodeValue == 'B' && $root_alter->item(0)->nodeValue == '-1'){
+		       		$root_steps->item(0)->nodeValue = 'F';
+		       		$root_alter->item(0)->nodeValue = '1';
+		       }
+		       else if($root_steps->item(0)->nodeValue == 'B' && $root_alter->item(0)->nodeValue == '1'){
+		       		$root_steps->item(0)->nodeValue = 'G';
+		       		$root_alter->item(0)->nodeValue = '1';
+		       		
+		       }
+		    }
+	       else if($root_steps->item(0)->nodeValue == 'B' && !($root_alter->item(0))){
+	       		$root_steps->item(0)->nodeValue = 'G';
+	       		
+	       		$child = $dom->createElement("root-alter"); 
+	       		$root->appendChild($child);
+	       		$root_alter = $root->getElementsByTagName('root-alter');
+	       		$root_alter->item(0)->nodeValue = '0';
+	       		
+	       }
+	       
+	   }// END OF TRANSPOSING HARMONY
+	   
+	   /*TRANSPOSING HARMONY BASS PART*/
+	   
+	   $basses = $xpath->query('//bass');
+	   
+	   foreach($basses as $bass){
+	  
+		   $bass_step = $bass->getElementsByTagName('bass-step');
+		   $bass_alter = $bass->getElementsByTagName('bass-alter');
+		   
+		   if($bass_step->item(0)){
+	       	
+		       if($bass_step->item(0)->nodeValue == 'C' && $bass_alter->item(0)){
+			       	if($bass_step->item(0)->nodeValue == 'C' && $bass_alter->item(0)->nodeValue == '1'){
+				       	$bass_step->item(0)->nodeValue = 'A';
+				       	$bass_alter->item(0)->nodeValue = '0';
+			       	}
+			       	if($bass_step->item(0)->nodeValue == 'C' && $bass_alter->item(0)->nodeValue == '-1'){
+				       	$bass_step->item(0)->nodeValue = 'G';
+				       	$bass_alter->item(0)->nodeValue = '0';
+			       	}
+			       
+		       }
+		       if($bass_step->item(0)->nodeValue == 'C' && !($bass_alter->item(0))){
+			       $bass_step->item(0)->nodeValue = 'G';
+			       
+			       $child = $dom->createElement("bass-alter");
+			       $bass->appendChild($child);
+			       $bass_alter = $bass->getElementsByTagName('bass-alter');
+			       $bass_alter->item(0)->nodeValue = '1';
+		       }
+		       // END
+		       
+		       		       
+		       if($bass_step->item(0)->nodeValue == 'D' && $bass_alter->item(0)){
+			       	if($bass_step->item(0)->nodeValue == 'D' && $bass_alter->item(0)->nodeValue == '1'){
+				       	$bass_step->item(0)->nodeValue = 'B';
+				       	$bass_alter->item(0)->nodeValue = '0';
+			       	}
+			       	if($bass_step->item(0)->nodeValue == 'D' && $bass_alter->item(0)->nodeValue == '-1'){
+				       	$bass_step->item(0)->nodeValue = 'A';
+				       	$bass_alter->item(0)->nodeValue = '0';
+			       	}
+			       
+		       }
+		       if($bass_step->item(0)->nodeValue == 'D' && !($bass_alter->item(0))){
+			       $bass_step->item(0)->nodeValue = 'B';
+			       
+			       $child = $dom->createElement("bass-alter");
+			       $bass->appendChild($child);
+			       $bass_alter = $bass->getElementsByTagName('bass-alter');
+			       $bass_alter->item(0)->nodeValue = '-1';
+		       }
+		       // END		       
+		       
+		       if($bass_step->item(0)->nodeValue == 'E' && $bass_alter->item(0)){
+			       	if($bass_step->item(0)->nodeValue == 'E' && $bass_alter->item(0)->nodeValue == '1'){
+				       	$bass_step->item(0)->nodeValue = 'C';
+				       	$bass_alter->item(0)->nodeValue = '1';
+			       	}
+			       	if($bass_step->item(0)->nodeValue == 'E' && $bass_alter->item(0)->nodeValue == '-1'){
+				       	$bass_step->item(0)->nodeValue = 'B';
+				       	$bass_alter->item(0)->nodeValue = '0';
+			       	}
+			       
+		       }
+		       if($bass_step->item(0)->nodeValue == 'E' && !($bass_alter->item(0))){
+			       $bass_step->item(0)->nodeValue = 'C';
+			       
+			       $child = $dom->createElement("bass-alter");
+			       $bass->appendChild($child);
+			       $bass_alter = $bass->getElementsByTagName('bass-alter');
+			       $bass_alter->item(0)->nodeValue = '0';
+		       }
+		       // END
+		       
+		       		       
+		       if($bass_step->item(0)->nodeValue == 'F' && $bass_alter->item(0)){
+			       	if($bass_step->item(0)->nodeValue == 'F' && $bass_alter->item(0)->nodeValue == '1'){
+				       	$bass_step->item(0)->nodeValue = 'D';
+				       	$bass_alter->item(0)->nodeValue = '0';
+			       	}
+			       	if($bass_step->item(0)->nodeValue == 'F' && $bass_alter->item(0)->nodeValue == '-1'){
+				       	$bass_step->item(0)->nodeValue = 'C';
+				       	$bass_alter->item(0)->nodeValue = '0';
+			       	}
+			       
+		       }
+		       if($bass_step->item(0)->nodeValue == 'F' && !($bass_alter->item(0))){
+			       $bass_step->item(0)->nodeValue = 'C';
+			       
+			       $child = $dom->createElement("bass-alter");
+			       $bass->appendChild($child);
+			       $bass_alter = $bass->getElementsByTagName('bass-alter');
+			       $bass_alter->item(0)->nodeValue = '1';
+		       }
+		       // END	
+		       		       
+		       if($bass_step->item(0)->nodeValue == 'G' && $bass_alter->item(0)){
+			       	if($bass_step->item(0)->nodeValue == 'G' && $bass_alter->item(0)->nodeValue == '1'){
+				       	$bass_step->item(0)->nodeValue = 'E';
+				       	$bass_alter->item(0)->nodeValue = '0';
+			       	}
+			       	if($bass_step->item(0)->nodeValue == 'G' && $bass_alter->item(0)->nodeValue == '-1'){
+				       	$bass_step->item(0)->nodeValue = 'D';
+				       	$bass_alter->item(0)->nodeValue = '0';
+			       	}
+			       
+		       }
+		       if($bass_step->item(0)->nodeValue == 'G' && !($bass_alter->item(0))){
+			       $bass_step->item(0)->nodeValue = 'D';
+			       
+			       $child = $dom->createElement("bass-alter");
+			       $bass->appendChild($child);
+			       $bass_alter = $bass->getElementsByTagName('bass-alter');
+			       $bass_alter->item(0)->nodeValue = '1';
+		       }
+		       // END		       
+		       
+		       if($bass_step->item(0)->nodeValue == 'A' && $bass_alter->item(0)){
+			       	if($bass_step->item(0)->nodeValue == 'A' && $bass_alter->item(0)->nodeValue == '1'){
+				       	$bass_step->item(0)->nodeValue = 'F';
+				       	$bass_alter->item(0)->nodeValue = '1';
+			       	}
+			       	if($bass_step->item(0)->nodeValue == 'A' && $bass_alter->item(0)->nodeValue == '-1'){
+				       	$bass_step->item(0)->nodeValue = 'E';
+				       	$bass_alter->item(0)->nodeValue = '0';
+			       	}
+			       
+		       }
+		       if($bass_step->item(0)->nodeValue == 'A' && !($bass_alter->item(0))){
+			       $bass_step->item(0)->nodeValue = 'F';
+			       
+			       $child = $dom->createElement("bass-alter");
+			       $bass->appendChild($child);
+			       $bass_alter = $bass->getElementsByTagName('bass-alter');
+			       $bass_alter->item(0)->nodeValue = '0';
+		       }
+		       // END
+		       
+		       		       
+		       if($bass_step->item(0)->nodeValue == 'B' && $bass_alter->item(0)){
+			       	if($bass_step->item(0)->nodeValue == 'B' && $bass_alter->item(0)->nodeValue == '1'){
+				       	$bass_step->item(0)->nodeValue = 'G';
+				       	$bass_alter->item(0)->nodeValue = '1';
+			       	}
+			       	if($bass_step->item(0)->nodeValue == 'B' && $bass_alter->item(0)->nodeValue == '-1'){
+				       	$bass_step->item(0)->nodeValue = 'F';
+				       	$bass_alter->item(0)->nodeValue = '1';
+			       	}
+			       
+		       }
+		       if($bass_step->item(0)->nodeValue == 'B' && !($bass_alter->item(0))){
+			       $bass_step->item(0)->nodeValue = 'G';
+			       
+			       $child = $dom->createElement("bass-alter");
+			       $bass->appendChild($child);
+			       $bass_alter = $bass->getElementsByTagName('bass-alter');
+			       $bass_alter->item(0)->nodeValue = '0';
+		       }
+		       // END		       
+		       
+		       
+	       }
+		   
+	   }// END OF TRANSPOSING HARMONY'S BASS PART
 
       $dom->save($savingLocation);
    }   
